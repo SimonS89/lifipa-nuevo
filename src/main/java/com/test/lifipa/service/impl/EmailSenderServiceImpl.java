@@ -37,21 +37,21 @@ public class EmailSenderServiceImpl implements EmailService {
 
     @Override
     public String msgBienvenida(String username) {
-        return "Hola " + username + ",\n \n" + "Para iniciar sesión click aqui : http://localhost:4200/" + "\n \n" + "Saludos, ASJ servicios";
+        return "Hola " + username + ",\n \n" + "Para iniciar sesión click aqui : http://localhost:4200/" + "\n \n" + "Saludos, LIFIPA";
     }
 
     @Override
     public String msgRecuperarContrasenia(String username,String hashedUsername) {
-        return "Hola " + username + ",\n \n" + "Para continuar con el restablecimiento de su contraseña haga click aquí: http://localhost:4200/recuperar_pass/" + hashedUsername + "\n \n" + "Si no has solicitado el restablecimiento descarta este correo. " + "\n \n" + "Saludos, ASJ servicios.";
+        return "Hola " + username + ",\n \n" + "Para continuar con el restablecimiento de su contraseña haga click aquí: http://localhost:4200/recuperar_pass/" + hashedUsername + "\n \n" + "Si no has solicitado el restablecimiento descarta este correo. " + "\n \n" + "Saludos, LIFIPA.";
     }
 
     @Override
     public String msgResetearContrasenia(String username, String newPassword) {
-        return "Hola " + username + ",\n \n" + "Restablecimiento de contraseña exitoso." + "\n \n" + "Tu nueva contraseña es :  " + newPassword + "\n \n" + "Saludos, ASJ servicios.";
+        return "Hola " + username + ",\n \n" + "Restablecimiento de contraseña exitoso." + "\n \n" + "Tu nueva contraseña es :  " + newPassword + "\n \n" + "Saludos, LIFIPA.";
     }
 
     @Override
     public String actualizarContrasenia(String username) {
-        return "Hola " + username + ",\n \n" + "Tu contraseña se ha actualizado exitosamente." + "\n \n"  + "Saludos, ASJ servicios.";
+        return "Hola " + username + ",\n \n" + "Tu contraseña se ha actualizado exitosamente." + "\n \n"  + "Saludos, LIFIPA.";
     }
 }

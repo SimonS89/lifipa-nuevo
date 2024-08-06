@@ -58,7 +58,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuario.setPassword(passwordEncoder.encode(userRegisterRequestDTO.getPassword()));
         usuario.setRoles((new ArrayList<>(Collections.singletonList(rolService.buscarPorRol(Rol.USER)))));
         usuario = usuarioRepository.save(usuario);
-        emailService.enviarMail(usuario.getEmail(), "Bienvenido/a a ASJ servicios", emailService.msgBienvenida(usuario.getUsername()));
+        emailService.enviarMail(usuario.getEmail(), "Bienvenido/a a LIFIPA", emailService.msgBienvenida(usuario.getUsername()));
         return mapper.map(usuario, UsuarioResponseDTO.class);
     }
 
@@ -162,7 +162,7 @@ public class UsuarioServiceImpl implements UsuarioService {
             Usuario admin = new Usuario();
             admin.setUsername("admin");
             admin.setPassword(passwordEncoder.encode("Admin123"));
-            admin.setEmail("ssueldo@asjservicios.com");
+            admin.setEmail("lifipa76@gmail.com");
             admin.setRoles((new ArrayList<>(Arrays.asList(rolService.buscarPorRol(Rol.ADMIN), rolService.buscarPorRol(Rol.USER)))));
             usuarioRepository.save(admin);
         }
