@@ -26,7 +26,6 @@ public class Categoria {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate fechaHabilitada;
     @ManyToMany(mappedBy = "categorias", fetch = FetchType.LAZY)
-    @JsonBackReference
     private List<Club> clubes;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "genero_id", referencedColumnName = "id", nullable = false)
