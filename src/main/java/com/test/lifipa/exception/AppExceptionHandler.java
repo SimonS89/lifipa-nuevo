@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestControllerAdvice
+/*@RestControllerAdvice
 public class AppExceptionHandler {
 
     private static final String ACCESS_DENIED = "access_denied_reason";
@@ -84,4 +84,69 @@ public class AppExceptionHandler {
         }
         return errorDetail;
     }
+}*/
+
+@RestControllerAdvice
+public class AppExceptionHandler {
+
+    private static final String ACCESS_DENIED = "access_denied_reason";
+    private static final String ERROR_MESSAGE = "errorMessage";
+
+    private ProblemDetail createProblemDetail(HttpStatusCode status, String detail, String reason) {
+        ProblemDetail errorDetail = ProblemDetail.forStatusAndDetail(status, detail);
+        errorDetail.setProperty(ACCESS_DENIED, reason);
+        return errorDetail;
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ProblemDetail handleInvalidArguments(MethodArgumentNotValidException ex) {
+        StringBuilder errorMessage = new StringBuilder("Validation errors: ");
+        ex.getBindingResult().getFieldErrors().forEach(error ->
+                errorMessage.append(error.getField()).append(": ").append(error.getDefaultMessage()).append("; ")
+        );
+        return createProblemDetail(HttpStatusCode.valueOf(400), errorMessage.toString(), "Invalid Arguments");
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ProblemDetail resourceNotFound(ResourceNotFoundException ex) {
+        return createProblemDetail(HttpStatusCode.valueOf(404), ex.getMessage(), "Resource Not Found");
+    }
+
+    @ExceptionHandler(AlreadyExistsException.class)
+    public ProblemDetail alreadyExists(AlreadyExistsException ex) {
+        return createProblemDetail(HttpStatusCode.valueOf(400), ex.getMessage(), "Already Exists");
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ProblemDetail uniqueException(DataIntegrityViolationException ex) {
+        String customErrorMessage = bdUniqueMsg(ex.getRootCause().getMessage());
+        return createProblemDetail(HttpStatusCode.valueOf(400), customErrorMessage, "Data Integrity Violation");
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ProblemDetail handleSecurityException(Exception ex) {
+        if (ex instanceof BadCredentialsException) {
+            return createProblemDetail(HttpStatusCode.valueOf(401), ex.getMessage(), "Credenciales incorrectas");
+        }
+        if (ex instanceof AccessDeniedException) {
+            return createProblemDetail(HttpStatusCode.valueOf(403), ex.getMessage(), "Autorización denegada");
+        }
+        if (ex instanceof SignatureException) {
+            return createProblemDetail(HttpStatusCode.valueOf(403), ex.getMessage(), "Token inválido");
+        }
+        if (ex instanceof ExpiredJwtException) {
+            return createProblemDetail(HttpStatusCode.valueOf(403), ex.getMessage(), "Token expirado");
+        }
+        return createProblemDetail(HttpStatusCode.valueOf(500), ex.getMessage(), "Internal Server Error");
+    }
+
+    private static String bdUniqueMsg(String errorMessage) {
+        if (errorMessage.contains("CUIT")) {
+            return "El CUIT del proveedor debe ser único. Por favor, elija otro CUIT.";
+        } else if (errorMessage.contains("CODIGO")) {
+            return "El código del proveedor debe ser único. Por favor, elija otro código.";
+        }
+        return "Data integrity violation";
+    }
 }
+

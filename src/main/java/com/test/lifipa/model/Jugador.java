@@ -21,7 +21,7 @@ public class Jugador extends Persona {
     @JoinColumn(name = "club_id", referencedColumnName = "id", nullable = false)
     private Club club;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "categoria_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "categoria_id", referencedColumnName = "id")
     private Categoria categoria;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "genero_id", referencedColumnName = "id", nullable = false)

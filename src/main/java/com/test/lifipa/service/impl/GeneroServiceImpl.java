@@ -29,7 +29,7 @@ public class GeneroServiceImpl implements GeneroService {
 
     @Override
     public Genero buscarPorGenero(String genero) throws ResourceNotFoundException {
-        return generoRepository.findByGenero(genero).orElseThrow(() -> new ResourceNotFoundException("Género no encontrado"));
+        return generoRepository.findByNombre(genero).orElseThrow(() -> new ResourceNotFoundException("Género no encontrado"));
     }
 
     @Override

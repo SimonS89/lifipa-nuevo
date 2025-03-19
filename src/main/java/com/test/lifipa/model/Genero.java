@@ -17,9 +17,9 @@ public class Genero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String genero;
+    private String nombre;
 
-    public Genero(String genero){
-        this.genero = genero;
+    public Genero(String nombre){
+        this.nombre = nombre;
     }
 }
