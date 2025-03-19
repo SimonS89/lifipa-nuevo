@@ -13,6 +13,9 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 import java.io.IOException;
 
@@ -22,6 +25,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
     private final UsuarioDetalleService usuarioDetalleService;
     private final HandlerExceptionResolver handlerExceptionResolver;
+    private static final Logger logger = LoggerFactory.getLogger(JwtAuthFilter.class);
+
 
     public JwtAuthFilter(JwtService jwtService, UsuarioDetalleService usuarioDetalleService, HandlerExceptionResolver handlerExceptionResolver) {
         this.jwtService = jwtService;
@@ -49,6 +54,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             }
             filterChain.doFilter(request, response);
         } catch (Exception ex) {
+            logger.error("[{}] {} - Error en la validación del JWT: {}",request.getMethod(),request.getRequestURI(),ex.getMessage());
             handlerExceptionResolver.resolveException(request, response, null, ex);
         }
     }

@@ -18,13 +18,13 @@ public class Jugador extends Persona {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "club_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "club_id", nullable = false)
     private Club club;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "categoria_id", referencedColumnName = "id")
+    @JoinColumn(name = "categoria_id")
     private Categoria categoria;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "genero_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "genero_id", nullable = false)
     private Genero genero;
     private boolean eliminado;
 }

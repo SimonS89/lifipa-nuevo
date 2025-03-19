@@ -90,7 +90,6 @@ public class AppExceptionHandler {
 public class AppExceptionHandler {
 
     private static final String ACCESS_DENIED = "access_denied_reason";
-    private static final String ERROR_MESSAGE = "errorMessage";
 
     private ProblemDetail createProblemDetail(HttpStatusCode status, String detail, String reason) {
         ProblemDetail errorDetail = ProblemDetail.forStatusAndDetail(status, detail);

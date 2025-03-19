@@ -5,8 +5,8 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<!-- TODO Poner version 3.2.5 si se rompe-->
-		<version>3.4.3</version>
+		<!-- TODO Poner version 3.4.3 para modernizar-->
+		<version>3.2.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.test</groupId>

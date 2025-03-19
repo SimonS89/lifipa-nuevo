@@ -1,0 +1,35 @@
+2025-03-19 02:21:47 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-03-19 02:21:47 [main] INFO  com.test.lifipa.LifipaApplication - Starting LifipaApplication using Java 21.0.6 with PID 12172 (C:\Users\strip\OneDrive\Escritorio\tareas\lifipa-nuevo\target\classes started by strip in C:\Users\strip\OneDrive\Escritorio\tareas\lifipa-nuevo)
+2025-03-19 02:21:47 [main] DEBUG com.test.lifipa.LifipaApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-03-19 02:21:47 [main] INFO  com.test.lifipa.LifipaApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-19 02:21:48 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-19 02:21:48 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 64 ms. Found 8 JPA repository interfaces.
+2025-03-19 02:21:49 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-03-19 02:21:49 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-03-19 02:21:49 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-19 02:21:49 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-03-19 02:21:49 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-19 02:21:49 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1803 ms
+2025-03-19 02:21:49 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-19 02:21:49 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-03-19 02:21:49 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-03-19 02:21:50 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-19 02:21:50 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-03-19 02:21:50 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4809c771
+2025-03-19 02:21:50 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-03-19 02:21:51 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-19 02:21:51 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-19 02:21:51 [main] DEBUG c.t.l.config.RequestLoggingFilter - Filter 'requestLoggingFilter' configured for use
+2025-03-19 02:21:51 [main] DEBUG c.t.l.security.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-03-19 02:21:52 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7c070e78, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@63ead376, org.springframework.security.web.context.SecurityContextHolderFilter@6e6ec9c, org.springframework.security.web.header.HeaderWriterFilter@1e8c9083, org.springframework.web.filter.CorsFilter@1a1d7832, org.springframework.security.web.authentication.logout.LogoutFilter@57fe6f2d, com.test.lifipa.security.filter.JwtAuthFilter@78de0f6f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3393aa46, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f0381cd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@639c5ab4, org.springframework.security.web.session.SessionManagementFilter@3dfe520, org.springframework.security.web.access.ExceptionTranslationFilter@30fffb53, org.springframework.security.web.access.intercept.AuthorizationFilter@21f7c0be]
+2025-03-19 02:21:52 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-03-19 02:21:52 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-03-19 02:21:52 [main] INFO  com.test.lifipa.LifipaApplication - Started LifipaApplication in 5.366 seconds (process running for 5.803)
+2025-03-19 02:21:52 [main] INFO  c.test.lifipa.util.DataInitializer - Inicializando aplicacion, llenando BD
+2025-03-19 02:21:52 [main] INFO  c.test.lifipa.util.DataInitializer - Creando Roles de usuario
+2025-03-19 02:21:52 [main] INFO  c.test.lifipa.util.DataInitializer - Creando usuario Admin
+2025-03-19 02:21:52 [main] INFO  c.test.lifipa.util.DataInitializer - Creando géneros
+2025-03-19 02:21:52 [main] INFO  c.test.lifipa.util.DataInitializer - Creando categorias
+2025-03-19 02:23:58 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-19 02:23:58 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-03-19 02:23:58 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
